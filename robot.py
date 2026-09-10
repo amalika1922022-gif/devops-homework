@@ -27,6 +27,8 @@ def run_command(command: str) -> str:
         return "Turning right"
     elif command == "STOP":
         return "Stopping"
+    elif command == "SPIN":
+        return "Robot is spinning in circles!"
     else:
         return f"Unknown command: {command}"
 
