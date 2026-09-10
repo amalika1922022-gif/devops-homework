@@ -39,6 +39,6 @@ def run_sequence(commands: list[str]) -> list[str]:
 
 
 if __name__ == "__main__":
-    demo_sequence = ["forward", "left", "stop"]
+    demo_sequence = ["forward", "left", "stop", "spin"]
     for response in run_sequence(demo_sequence):
         print(response)
