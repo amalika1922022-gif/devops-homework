@@ -36,7 +36,7 @@ def test_unknown_command():
     assert run_command("DANCE") == "Unknown command: DANCE"
     
 def test_spin():
-    assert run_command("SPIN") == "Robot is sleeping"
+    assert run_command("SPIN") == "Robot is spinning in circles!"
 
 def test_sequence():
     result = run_sequence(["forward", "left", "stop"])
