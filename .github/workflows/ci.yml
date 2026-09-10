@@ -1,0 +1,35 @@
+name: CI
+
+# Runs automatically on every push and every pull request.
+# This is the "Continuous Integration" stage from the lecture.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest -v
+
+      - name: Build Docker image
+        run: docker build -t robotat-robot:ci .
+
+      - name: Run the container (smoke test)
+        run: docker run --rm robotat-robot:ci
